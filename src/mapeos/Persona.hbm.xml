@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "../hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="datos">
+
+    <class name="Persona" table="persona" abstract="true">
+        <id name="idPersona" column="idPersona">
+            <generator class="identity"/>
+        </id>
+        <property name="nombre" column="nombre"/>
+        <property name="apellido" column="apellido"/>
+        <property name="dni" column="dni"/>
+    </class>
+
+</hibernate-mapping>
