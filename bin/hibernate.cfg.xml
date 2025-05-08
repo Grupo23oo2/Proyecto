@@ -12,7 +12,7 @@
 		<property name="connection.password">4231</property>
 		<property name="connection.pool_size">1</property>
 <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
-		<property name="show_sql">false</property><!-- en true muestra hql en consola-->
+		<property name="show_sql">true</property><!-- en true muestra hql en consola-->
 		<property name="hibernate.hbm2ddl.auto">update</property><!--crea la tabla-->
 		<!--Mapeo Entidades   -->
     

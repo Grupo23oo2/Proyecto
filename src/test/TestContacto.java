@@ -14,12 +14,12 @@ public class TestContacto {
         abm.agregarContacto(nuevo);
 
         // Traer
-      //  Contacto c = abm.traerContacto(nuevo.getIdContacto());
-       // System.out.println("Contacto pedido: " + c.getEmail());
+        Contacto c = abm.traerContacto(nuevo.getIdContacto());
+        System.out.println("Contacto pedido: " + c.getEmail());
 
         // Modificar
-   //     c.setEmail("otro@mail.com");
-   //     abm.modificarContacto(c);
+        c.setEmail("otro@mail.com");
+        abm.modificarContacto(c);
 
         // Eliminar
         abm.eliminarContacto(nuevo.getIdContacto());
