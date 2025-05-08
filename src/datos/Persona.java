@@ -1,7 +1,15 @@
 package datos;
 
+import javax.persistence.*;
+
+@MappedSuperclass
+
 public abstract class Persona {
-	protected int idPersona;
+	
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected int idPersona;  // El id será autoincremental y será heredado
+	
 	protected String nombre;
 	protected String apellido;
 	protected String dni;

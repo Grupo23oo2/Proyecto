@@ -1,5 +1,11 @@
 package datos;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "empleado")
+
 public class Empleado extends Persona{
     private String rol;
 

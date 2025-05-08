@@ -1,8 +1,15 @@
 package datos;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "contacto")
 
 public class Contacto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idContacto;
+    
     private String email;
     private String telefono;
 
