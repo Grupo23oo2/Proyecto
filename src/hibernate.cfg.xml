@@ -22,6 +22,7 @@
     <mapping resource="mapeos/Persona.hbm.xml"/>
     <mapping resource="mapeos/Empleado.hbm.xml"/>
     <mapping resource="mapeos/Agenda.hbm.xml"/>
+   
     
   </session-factory>
 </hibernate-configuration>

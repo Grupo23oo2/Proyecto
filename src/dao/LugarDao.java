@@ -5,6 +5,7 @@ import org.hibernate.Transaction;
 import datos.Lugar;
 
 public class LugarDao {
+	
     public int agregarLugar(Lugar lugar) {
         Transaction tx = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

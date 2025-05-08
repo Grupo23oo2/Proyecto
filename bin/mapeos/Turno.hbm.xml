@@ -11,6 +11,6 @@
 
         <many-to-one name="lugarTurno" column="idLugar" class="Lugar"/>
         <many-to-one name="empleado" column="idEmpleado" class="Empleado"/>
-        <many-to-one name="agenda" column="idAgenda" class="datos.Agenda"/>
+        <many-to-one name="agenda" column="idAgenda" class="Agenda"/>
     </class>
 </hibernate-mapping>

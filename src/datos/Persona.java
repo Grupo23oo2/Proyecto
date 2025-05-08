@@ -4,13 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "persona")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+
 public abstract class Persona {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +18,6 @@ public abstract class Persona {
 	protected String dni;
 	
 	public Persona(int idPersona, String nombre, String apellido, String dni) {
-		super();
 		this.idPersona = idPersona;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -28,7 +25,6 @@ public abstract class Persona {
 	}
 	
 	public Persona(String nombre, String apellido, String dni) {
-		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;

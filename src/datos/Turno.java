@@ -20,7 +20,7 @@ public class Turno {
     private Lugar lugarTurno;
     private LocalDateTime fechaHora;
     private String estadoTurno;
-    private Cliente cliente;
+    private Empleado cliente;
     
     @ManyToOne
     @JoinColumn(name = "idEmpleado")  // Asegúrate de que el nombre de la columna coincida con el de la base de datos
@@ -31,7 +31,8 @@ public class Turno {
     private Agenda agenda;
     
     public Turno(int idTurno, boolean presencial, Lugar lugarTurno, LocalDateTime fechaHora, String estadoTurno,
-			Cliente cliente, Empleado empleado, Agenda agenda) {
+			Empleado cliente, Empleado empleado, Agenda agenda) {
+		super();
 		this.idTurno = idTurno;
 		this.presencial = presencial;
 		this.lugarTurno = lugarTurno;
@@ -42,8 +43,9 @@ public class Turno {
 		this.agenda = agenda;
 	}
     
-    public Turno(boolean presencial, Lugar lugarTurno, LocalDateTime fechaHora, String estadoTurno,
-			Cliente cliente, Empleado empleado, Agenda agenda) {
+    public Turno(boolean presencial, Lugar lugarTurno, LocalDateTime fechaHora, String estadoTurno, Empleado cliente,
+			Empleado empleado, Agenda agenda) {
+		super();
 		this.presencial = presencial;
 		this.lugarTurno = lugarTurno;
 		this.fechaHora = fechaHora;
@@ -87,15 +89,15 @@ public class Turno {
         this.empleado = empleado;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
+    public Empleado getCliente() {
+		return cliente;
+	}
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
+	public void setCliente(Empleado cliente) {
+		this.cliente = cliente;
+	}
 
-    public LocalDateTime getFechaHora() {
+	public LocalDateTime getFechaHora() {
         return fechaHora;
     }
 
@@ -118,9 +120,5 @@ public class Turno {
 	public void setAgenda(Agenda agenda) {
 		this.agenda = agenda;
 	}
-
-	
-    
-    
     
 }

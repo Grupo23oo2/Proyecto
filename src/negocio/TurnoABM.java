@@ -7,11 +7,17 @@ import java.time.LocalTime;
 
 public class TurnoABM {
 
-    private TurnoDao turnoDao;
+    private TurnoDao turnoDao= new TurnoDao();
 
-    public TurnoABM() {
-        this.turnoDao = new TurnoDao();
+    
+    public boolean agregarTurno(Turno turno) {
+        return turnoDao.agregarTurno(turno);
     }
+
+    public Turno traerTurno(int idTurno) {
+        return turnoDao.traerTurno(idTurno);
+    }
+    
 
     public boolean eliminarTurno(int idTurno) {
         return turnoDao.eliminarTurno(idTurno);

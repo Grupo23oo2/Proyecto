@@ -5,6 +5,22 @@ import org.hibernate.Transaction;
 import datos.Turno;
 
 public class TurnoDao {
+	
+	public boolean agregarTurno(Turno turno) {
+	    Transaction tx = null;
+	    try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+	        tx = session.beginTransaction();
+	        session.save(turno);
+	        tx.commit();
+	        return true;
+	    } catch (Exception e) {
+	        if (tx != null) tx.rollback();
+	        e.printStackTrace();
+	        return false;
+	    }
+	}
+	
+
     public Turno traerTurno(int idTurno) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.get(Turno.class, idTurno);

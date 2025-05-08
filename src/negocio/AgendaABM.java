@@ -25,18 +25,11 @@ public class AgendaABM {
         return agendaDao.agregarAgenda(agenda);
     }
 
-    // Método para eliminar una agenda
-    public boolean eliminarAgenda(int idAgenda) {
-        if (idAgenda <= 0) {
-            throw new IllegalArgumentException("El ID de la agenda no es válido");
-        }
-        return agendaDao.eliminarAgenda(idAgenda);
-    }
-
-
     public Set<Turno> traerTurnosConfirmados(LocalDateTime desde, LocalDateTime hasta) {
         return agendaDao.traerTurnosConfirmados(desde, hasta);
     }
+    
+    
     
     
 }

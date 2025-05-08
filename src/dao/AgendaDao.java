@@ -43,29 +43,6 @@ public class AgendaDao {
         return resultado;
     }
 
-    // Método para eliminar una agenda
-    public boolean eliminarAgenda(int idAgenda) {
-        boolean resultado = false;
-        try {
-            iniciaOperacion();
-            Agenda agenda = session.get(Agenda.class, idAgenda);
-            if (agenda != null) {
-                session.delete(agenda);  // Eliminamos la agenda de la BD
-                tx.commit();
-                resultado = true;
-            } else {
-                System.out.println("Agenda no encontrada con ID: " + idAgenda);
-            }
-        } catch (HibernateException he) {
-            manejaExcepcion(he);
-        } finally {
-            session.close();
-        }
-        return resultado;
-    }
-    
-    
-
     // Método para traer turnos confirmados dentro de un rango de fechas
 	    public Set<Turno> traerTurnosConfirmados(LocalDateTime desde, LocalDateTime hasta) {
 	    	Set<Turno> turnosConfirmados = new HashSet<>();
@@ -88,4 +65,7 @@ public class AgendaDao {
 	        }
 	        return turnosConfirmados;
 	    }
+	    
+	    
+	    
 }
