@@ -1,18 +1,24 @@
 package datos;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "cliente")
 public class Cliente extends Persona{
     private String cuit;
     private Contacto contacto;
+    
 
-    public Cliente(int idPersona, String nombre, String apellido, String dni, String cuit, Contacto contacto) {
+	public Cliente(int idPersona, String nombre, String apellido, String dni, String cuit, Contacto contacto) {
 		super(idPersona, nombre, apellido, dni);
 		this.cuit = cuit;
 		this.contacto = contacto;
 	}
-    
+
     public Cliente() {}
 
-    
+
 
     public String getCuit() {
         return cuit;
@@ -32,5 +38,4 @@ public class Cliente extends Persona{
 
 
 
-	
 }
