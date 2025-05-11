@@ -15,20 +15,20 @@ public class Empleado extends Persona{
     private String rol;
 
     @OneToMany(mappedBy = "empleado", cascade = CascadeType.ALL)  // mappedBy debe coincidir con el atributo en la clase Turno
-    private Set<Turno> turnos = new HashSet<>();  // Relación 1:N con Turno
+    private Set<Servicio> servicios = new HashSet<>();  // Relación 1:N con Turno
     
    
     
-    public Empleado(int idPersona, String nombre, String apellido, String dni, String rol, Set<Turno> turnos) {
+    public Empleado(int idPersona, String nombre, String apellido, String dni, String rol, Set<Servicio> servicios) {
 		super(idPersona, nombre, apellido, dni);
 		this.rol = rol;
-		this.turnos = turnos;
+		this.servicios = servicios;
 	}
     
-    public Empleado(String nombre, String apellido, String dni, String rol, Set<Turno> turnos) {
+    public Empleado(String nombre, String apellido, String dni, String rol, Set<Servicio> servicios) {
 		super(nombre, apellido, dni);
 		this.rol = rol;
-		this.turnos = turnos;
+		this.servicios = servicios;
 	}
     
     public Empleado(String nombre, String apellido, String dni, String rol) {
@@ -47,12 +47,12 @@ public class Empleado extends Persona{
 		this.rol = rol;
 	}
 
-	public Set<Turno> getTurnos() {
-		return turnos;
+	public Set<Servicio> getServicios() {
+		return servicios;
 	}
 
-	public void setTurnos(Set<Turno> turnos) {
-		this.turnos = turnos;
+	public void setServicios(Set<Servicio> servicios) {
+		this.servicios = servicios;
 	}
 
 	

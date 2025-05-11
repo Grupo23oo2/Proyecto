@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE hibernate-mapping SYSTEM "../hibernate-mapping-3.0.dtd">	
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">	
 <hibernate-mapping package="datos">
 	
     <joined-subclass name="Empleado" extends="Persona" table="empleado">
@@ -7,9 +9,9 @@
         
         <property name="rol" column="rol"/>
 
-        <set name="turnos" table="turno" inverse="true" lazy="true" fetch="select">
+        <set name="servicios" table="servicio" inverse="true" lazy="true" fetch="select">
             <key column="idEmpleado"/>
-            <one-to-many class="Turno"/>
+            <one-to-many class="Servicio"/>
         </set>
     </joined-subclass>
 

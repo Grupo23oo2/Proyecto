@@ -8,7 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import datos.Empleado;
-import datos.Turno;
+import datos.Servicio;
 
 public class EmpleadoDao {
 	private static Session session;
@@ -97,8 +97,8 @@ public class EmpleadoDao {
 	    return objeto;
 	}
 	
-	public Set<Turno> traerTurnosDeEmpleado(Empleado empleado) {
-	    Set<Turno> turnos = new HashSet<>();  // Inicializamos la colección en vacío
+	public Set<Servicio> traerTurnosDeEmpleado(Empleado empleado) {
+	    Set<Servicio> servicios = new HashSet<>();  // Inicializamos la colección en vacío
 	    try {
 	        iniciaOperacion();
 	        String hql = "SELECT e FROM Empleado e JOIN FETCH e.turnos WHERE e.idPersona = :id";
@@ -106,7 +106,7 @@ public class EmpleadoDao {
 	                            .setParameter("id", empleado.getIdPersona())
 	                            .uniqueResult();
 	        if (e != null) {
-	            turnos = e.getTurnos();  // Si el empleado existe, asignamos los turnos
+	        	servicios = e.getServicio();  // Si el empleado existe, asignamos los servicios
 	        }
 	        tx.commit();
 	    } catch (HibernateException he) {
@@ -115,7 +115,7 @@ public class EmpleadoDao {
 	    } finally {
 	        session.close();
 	    }
-	    return turnos;  // Si no encontró turnos, devolverá un Set vacío
+	    return servicios;  // Si no encontró servicios, devolverá un Set vacío
 	}
 	
 	

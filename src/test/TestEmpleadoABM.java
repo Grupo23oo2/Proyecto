@@ -1,7 +1,7 @@
 package test;
 
 import datos.Empleado;
-import datos.Turno;
+import datos.Servicio;
 import negocio.EmpleadoABM;
 import org.hibernate.SessionFactory;
 
@@ -31,7 +31,7 @@ public class TestEmpleadoABM {
             SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
             Session session = sessionFactory.openSession();
             Empleado empleado = session.get(Empleado.class, e.getIdPersona());  // Trae el empleado por ID
-            Set<Turno> turnos1 = empleado.getTurnos();  // Obtiene los turnos asociados
+            Set<Servicio> turnos1 = empleado.getServicio();  // Obtiene los turnos asociados
             System.out.println("Turnos del empleado: " + turnos1);
             session.close();          
           
@@ -41,9 +41,9 @@ public class TestEmpleadoABM {
             System.out.println("Empleado modificado: " + abm.traerEmpleado(e.getIdPersona()));
 
             // 4. Traer turnos del empleado
-            Set<Turno> turnos = abm.traerTurnos(e);
+            Set<Servicio> turnos = abm.traerServicio(e);
             System.out.println("Turnos del empleado:");
-            for (Turno t : turnos) {
+            for (Servicio t : turnos) {
                 System.out.println(t);
             }
 

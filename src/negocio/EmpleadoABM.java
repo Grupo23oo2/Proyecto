@@ -2,7 +2,7 @@ package negocio;
 
 import dao.EmpleadoDao;
 import datos.Empleado;
-import datos.Turno;
+import datos.Servicio;
 
 import java.util.Set;
 
@@ -27,7 +27,7 @@ public class EmpleadoABM {
 		return dao.traerEmpleado(idEmpleado);
 	}
 
-	public Set<Turno> traerTurnos(Empleado e) {
+	public Set<Servicio> traerServicio(Empleado e) {
 		return dao.traerTurnosDeEmpleado(e);
 	}
 
