@@ -106,7 +106,7 @@ public class EmpleadoDao {
 	                            .setParameter("id", empleado.getIdPersona())
 	                            .uniqueResult();
 	        if (e != null) {
-	        	servicios = e.getServicio();  // Si el empleado existe, asignamos los servicios
+	        	servicios = e.getServicios();  // Si el empleado existe, asignamos los servicios
 	        }
 	        tx.commit();
 	    } catch (HibernateException he) {

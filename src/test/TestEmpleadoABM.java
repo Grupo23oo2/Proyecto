@@ -31,7 +31,7 @@ public class TestEmpleadoABM {
             SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
             Session session = sessionFactory.openSession();
             Empleado empleado = session.get(Empleado.class, e.getIdPersona());  // Trae el empleado por ID
-            Set<Servicio> turnos1 = empleado.getServicio();  // Obtiene los turnos asociados
+            Set<Servicio> turnos1 = empleado.getServicios();  // Obtiene los turnos asociados
             System.out.println("Turnos del empleado: " + turnos1);
             session.close();          
           
