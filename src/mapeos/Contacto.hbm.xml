@@ -5,7 +5,8 @@
 <hibernate-mapping package="datos">
     <class name="Contacto" table="contacto">
         <id name="idContacto" column="idContacto">
-            <generator class="increment"/>
+            <generator class="identity"/>
+            
         </id>
         <property name="email" column="email"/>
         <property name="telefono" column="telefono"/>

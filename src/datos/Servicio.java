@@ -2,23 +2,22 @@ package datos;
 
 import java.time.LocalDateTime;
 
-public class Turno {
-    private int idTurno;
+public class Servicio {
+    private int idServicio;
     private boolean presencial;
-    private Lugar lugarTurno;
+    private Lugar lugarServicio;
     private Empleado empleado;
     private Cliente cliente;
     private LocalDateTime fechaHora;
-    private String estadoTurno;
 
-    public Turno() {}
+    public Servicio() {}
 
-    public int getIdTurno() {
-        return idTurno;
+    public int getIdServicio() {
+        return idServicio;
     }
 
-    public void setIdTurno(int idTurno) {
-        this.idTurno = idTurno;
+    public void setIdServicio(int idTurno) {
+        this.idServicio = idTurno;
     }
 
     public boolean isPresencial() {
@@ -29,12 +28,12 @@ public class Turno {
         this.presencial = presencial;
     }
 
-    public Lugar getLugarTurno() {
-        return lugarTurno;
+    public Lugar getLugarServicio() {
+        return lugarServicio;
     }
 
-    public void setLugarTurno(Lugar lugarTurno) {
-        this.lugarTurno = lugarTurno;
+    public void setLugarServicio(Lugar lugarTurno) {
+        this.lugarServicio = lugarTurno;
     }
 
     public Empleado getEmpleado() {
@@ -61,11 +60,4 @@ public class Turno {
         this.fechaHora = fechaHora;
     }
 
-    public String getEstadoTurno() {
-        return estadoTurno;
-    }
-
-    public void setEstadoTurno(String estadoTurno) {
-        this.estadoTurno = estadoTurno;
-    }
 }

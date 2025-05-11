@@ -4,15 +4,14 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="datos">
-    <class name="Turno" table="turno">
-        <id name="idTurno" column="idTurno">
+    <class name="Servicio" table="servicio">
+        <id name="idServicio" column="idServicio">
             <generator class="increment"/>
         </id>
         <property name="presencial"/>
         <property name="fechaHora" column="fechaHora"/>
-        <property name="estadoTurno" column="estadoTurno"/>
 
-        <many-to-one name="lugarTurno" column="idLugar" class="Lugar"/>
+        <many-to-one name="lugarServicio" column="lugarServicio" class="Lugar"/>
         <many-to-one name="empleado" column="idEmpleado" class="Empleado"/>
         <many-to-one name="cliente" column="idCliente" class="Cliente"/>
     </class>

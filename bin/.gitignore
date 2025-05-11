@@ -1,7 +1,5 @@
-/mapeos/
-/hibernate-configuration-3.0.dtd
-/hibernate-mapping-3.0.dtd
+/dao/
 /datos/
 /negocio/
-/dao/
 /test/
+/mapeos/

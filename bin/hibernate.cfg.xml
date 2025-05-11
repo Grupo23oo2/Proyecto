@@ -18,7 +18,7 @@
     
    
     <mapping resource="mapeos/Lugar.hbm.xml"/>
-    <mapping resource="mapeos/Turno.hbm.xml"/>
+    <mapping resource="mapeos/Servicio.hbm.xml"/>
     <mapping resource="mapeos/Contacto.hbm.xml"/>
     <mapping class="datos.Empleado"/>
     <mapping class="datos.Cliente"/>
