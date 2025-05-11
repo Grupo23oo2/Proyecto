@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "../hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="datos">
+    <joined-subclass name="Empleado" extends="Persona" table="empleado">
+        <key column="idPersona"/>  <!-- clave heredada de persona -->
+        
+        <property name="rol" column="rol"/>
+
+        <set name="servicios" table="servicio" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key column="idEmpleado"/>
+            <one-to-many class="Servicio"/>
+        </set>
+    </joined-subclass>
+</hibernate-mapping>

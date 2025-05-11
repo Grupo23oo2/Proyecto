@@ -1,26 +1,38 @@
 package datos;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED) // Esto hace que cada subclase tenga su tabla
 public abstract class Persona {
-	protected int idPersona;
+	@Id
+	protected long idPersona;
 	protected String nombre;
 	protected String apellido;
 	protected String dni;
 	
-	public Persona(int idPersona, String nombre, String apellido, String dni) {
-		
+	public Persona(){}
+	
+	public Persona(long idPersona, String nombre, String apellido, String dni) {
 		this.idPersona = idPersona;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
 	}
 	
-	public Persona(){}
+	public Persona(String nombre, String apellido, String dni) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.dni = dni;
+	}
 
-	public int getIdPersona() {
+	public long getIdPersona() {
 		return idPersona;
 	}
 
-	public void setIdPersona(int idPersona) {
+	public void setIdPersona(long idPersona) {
 		this.idPersona = idPersona;
 	}
 
@@ -53,8 +65,4 @@ public abstract class Persona {
 		return "Persona [idPersona=" + idPersona + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni
 				+ "]";
 	}
-	
-	
-	
-	
 }

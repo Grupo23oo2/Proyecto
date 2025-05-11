@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "../hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="datos">
+    <class name="datos.Contacto" table="contacto" >
+		<id name="idContacto" column="idContacto" type="long">
+			<generator class="foreign">
+				<param name="property">cliente</param>
+			</generator>
+		</id>
+		<property name="direccion" type="string" column="direccion" />
+		<property name="email" type="string" column="email" />
+		<property name="telefono" type="string" column="telefono" />
+		<!--<one-to-one name="cliente" class="datos.Cliente"></one-to-one>
+		<one-to-one name="cliente" class="datos.Cliente" property-ref="contacto"/>-->
+		<one-to-one name="cliente" class="datos.Cliente" constrained="true"/>
+	</class>
+</hibernate-mapping>

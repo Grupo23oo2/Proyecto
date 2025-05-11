@@ -40,14 +40,16 @@ public class ClienteDao {
 	    return resultado;
 	}
 	
-	public Cliente traerCliente(String dni) {
+	public Cliente traerCliente(long idCliente) {
 		Cliente cliente = null;
 	    try {
 	        iniciaOperacion();
-	        cliente = (Cliente) session.get(Cliente.class, dni);
+	        cliente = (Cliente) session.get(Cliente.class, idCliente);
 	        if (cliente == null) {
-	            System.out.println("No se encontró ningún cliente con dni: " + dni);
+	            System.out.println("No se encontró ningún cliente con id: " + idCliente);
 	        }
+	    } catch (HibernateException he) {
+	        manejaExcepcion(he);
 	    } finally {
 	        session.close();
 	    }
@@ -103,12 +105,12 @@ public class ClienteDao {
 	    Set<Servicio> turnos = new HashSet<>();
 	    try {
 	        iniciaOperacion();
-	        String hql = "SELECT c FROM Cliente c JOIN FETCH c.Servicios WHERE c.idPersona = :id";
+	        String hql = "SELECT c FROM Cliente c JOIN FETCH c.servicios WHERE c.idPersona = :id";
 	        Cliente c = session.createQuery(hql, Cliente.class)
 	                            .setParameter("id", cliente.getIdPersona())
 	                            .uniqueResult();
 	        if (c != null) {
-	            turnos = c.getTurnos();
+	            turnos = c.getServicios();
 	        }
 	        tx.commit();
 	    } catch (HibernateException he) {

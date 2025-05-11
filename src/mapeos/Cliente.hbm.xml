@@ -5,7 +5,8 @@
         <key column="idPersona"/>  <!-- clave heredada de persona -->
         
         <property name="cuit" column="cuit"/>
-		<property name="contacto" column="contacto"/>
+		<!--<property name="contacto" column="contacto"/>-->
+		<one-to-one name="contacto" class="datos.Contacto" ></one-to-one>
 		
         <set name="servicios" table="servicio" inverse="true" lazy="true" fetch="select">
             <key column="idCliente"/>

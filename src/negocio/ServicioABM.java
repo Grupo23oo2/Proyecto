@@ -1,27 +1,35 @@
 package negocio;
 
-import dao.TurnoDao;
-import datos.Turno;
+import dao.ServicioDao;
+import datos.Servicio;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class TurnoABM {
+public class ServicioABM {
 
-    private TurnoDao turnoDao;
+    private ServicioDao servicioDao;
 
-    public TurnoABM() {
-        this.turnoDao = new TurnoDao();
+    public ServicioABM() {
+        this.servicioDao = new ServicioDao();
     }
 
-    public boolean eliminarTurno(int idTurno) {
-        return turnoDao.eliminarTurno(idTurno);
+    public int agregarServicio(Servicio servicio) {
+        return servicioDao.agregarServicio(servicio);
     }
 
-    public boolean modificarTurno(int idTurno, LocalDate fechaTurno, LocalTime horaTurno) {
-        Turno turno = turnoDao.traerTurno(idTurno);
-        if (turno != null) {
-            turno.setFechaHora(fechaTurno.atTime(horaTurno));
-            return turnoDao.modificarTurno(turno);
+    public Servicio traerServicio(int idServicio) {
+        return servicioDao.traerServicio(idServicio);
+    }
+
+    public boolean eliminarServicio(int idServicio) {
+        return servicioDao.eliminarServicio(idServicio);
+    }
+
+    public boolean modificarServicio(int idServicio, LocalDate fechaTurno, LocalTime horaTurno) {
+        Servicio servicio = servicioDao.traerServicio(idServicio);
+        if (servicio != null) {
+            servicio.setFechaHoraInicio(fechaTurno.atTime(horaTurno));
+            return servicioDao.modificarServicio(servicio);
         }
         return false;
     }

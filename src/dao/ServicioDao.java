@@ -2,19 +2,34 @@ package dao;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import datos.Turno;
 
-public class TurnoDao {
-    public Turno traerTurno(int idTurno) {
+import datos.Servicio;
+
+public class ServicioDao {
+	public int agregarServicio(Servicio servicio) {
+        Transaction tx = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.get(Turno.class, idTurno);
+            tx = session.beginTransaction();
+            int id = (int) session.save(servicio);
+            tx.commit();
+            return id;
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+            return 0;
+        }
+    }
+	
+	public Servicio traerServicio(int idServicio) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.get(Servicio.class, idServicio);
         }
     }
 
-    public boolean eliminarTurno(int idTurno) {
+    public boolean eliminarServicio(int idServicio) {
         Transaction tx = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Turno t = session.get(Turno.class, idTurno);
+            Servicio t = session.get(Servicio.class, idServicio);
             if (t == null) return false;
             tx = session.beginTransaction();
             session.delete(t);
@@ -27,11 +42,11 @@ public class TurnoDao {
         }
     }
 
-    public boolean modificarTurno(Turno turno) {
+    public boolean modificarServicio(Servicio servicio) {
         Transaction tx = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             tx = session.beginTransaction();
-            session.update(turno);
+            session.update(servicio);
             tx.commit();
             return true;
         } catch (Exception e) {

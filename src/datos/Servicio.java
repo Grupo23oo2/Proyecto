@@ -2,70 +2,110 @@ package datos;
 
 import java.time.LocalDateTime;
 
-public class Turno {
-    private int idTurno;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Servicio {
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idServicio;
     private boolean presencial;
-    private Lugar lugarTurno;
+    @ManyToOne
+    @JoinColumn(name = "idLugar")
+    private Lugar lugarServicio;
+    
+    @ManyToOne
+    @JoinColumn(name = "idEmpleado")
     private Empleado empleado;
+   
+    @ManyToOne
+    @JoinColumn(name = "idCliente")
     private Cliente cliente;
-    private LocalDateTime fechaHora;
-    private String estadoTurno;
+    
+    private LocalDateTime fechaHoraInicio;
+    private LocalDateTime fechaHoraFin;
+    
+    public Servicio() {}
+    
+    public Servicio(int idServicio, boolean presencial, Lugar lugarServicio, Empleado empleado, Cliente cliente, LocalDateTime fechaHoraInicio, LocalDateTime fechaHoraFin) {
+		super();
+		this.idServicio = idServicio;
+		this.presencial = presencial;
+		this.lugarServicio = lugarServicio;
+		this.empleado = empleado;
+		this.cliente = cliente;
+		this.fechaHoraInicio = fechaHoraInicio;
+		this.fechaHoraFin = fechaHoraFin;
+	}
 
-    public Turno() {}
+	public Servicio(boolean presencial, Lugar lugarServicio, Empleado empleado, Cliente cliente, LocalDateTime fechaHoraInicio, LocalDateTime fechaHoraFin) {
+		super();
+		this.presencial = presencial;
+		this.lugarServicio = lugarServicio;
+		this.empleado = empleado;
+		this.cliente = cliente;
+		this.fechaHoraInicio = fechaHoraInicio;
+		this.fechaHoraFin = fechaHoraFin;
+	}
 
-    public int getIdTurno() {
-        return idTurno;
-    }
+	public int getIdServicio() {
+		return idServicio;
+	}
 
-    public void setIdTurno(int idTurno) {
-        this.idTurno = idTurno;
-    }
+	public void setIdServicio(int idServicio) {
+		this.idServicio = idServicio;
+	}
 
-    public boolean isPresencial() {
-        return presencial;
-    }
+	public boolean isPresencial() {
+		return presencial;
+	}
 
-    public void setPresencial(boolean presencial) {
-        this.presencial = presencial;
-    }
+	public void setPresencial(boolean presencial) {
+		this.presencial = presencial;
+	}
 
-    public Lugar getLugarTurno() {
-        return lugarTurno;
-    }
+	public Lugar getLugarServicio() {
+		return lugarServicio;
+	}
 
-    public void setLugarTurno(Lugar lugarTurno) {
-        this.lugarTurno = lugarTurno;
-    }
+	public void setLugarServicio(Lugar lugarServicio) {
+		this.lugarServicio = lugarServicio;
+	}
 
-    public Empleado getEmpleado() {
-        return empleado;
-    }
+	public Empleado getEmpleado() {
+		return empleado;
+	}
 
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
-    }
+	public void setEmpleado(Empleado empleado) {
+		this.empleado = empleado;
+	}
 
-    public Cliente getCliente() {
-        return cliente;
-    }
+	public Cliente getCliente() {
+		return cliente;
+	}
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 
-    public LocalDateTime getFechaHora() {
-        return fechaHora;
-    }
+	public LocalDateTime getFechaHoraInicio() {
+		return fechaHoraInicio;
+	}
 
-    public void setFechaHora(LocalDateTime fechaHora) {
-        this.fechaHora = fechaHora;
-    }
+	public void setFechaHoraInicio(LocalDateTime fechaHoraInicio) {
+		this.fechaHoraInicio = fechaHoraInicio;
+	}
 
-    public String getEstadoTurno() {
-        return estadoTurno;
-    }
+	public LocalDateTime getFechaHoraFin() {
+		return fechaHoraFin;
+	}
 
-    public void setEstadoTurno(String estadoTurno) {
-        this.estadoTurno = estadoTurno;
-    }
+	public void setFechaHoraFin(LocalDateTime fechaHoraFin) {
+		this.fechaHoraFin = fechaHoraFin;
+	}
 }
