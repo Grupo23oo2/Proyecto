@@ -1,30 +1,33 @@
 package datos;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.OneToOne;
-import javax.persistence.JoinColumn;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "cliente")
-
 public class Cliente extends Persona{
     private String cuit;
-    
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idContacto") // clave foránea en la tabla cliente
     private Contacto contacto;
-
-    public Cliente(int idPersona, String nombre, String apellido, String dni, String cuit, Contacto contacto) {
+    
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)  // mappedBy debe coincidir con el atributo en la clase Turno
+    private Set<Turno> turnos = new HashSet<>();  // Relación 1:N con Turno
+    
+    public Cliente(int idPersona, String nombre, String apellido, String dni, String cuit, Contacto contacto,
+			Set<Turno> turnos) {
 		super(idPersona, nombre, apellido, dni);
 		this.cuit = cuit;
 		this.contacto = contacto;
+		this.turnos = turnos;
 	}
-    
+
     public Cliente() {}
 
-    
+
 
     public String getCuit() {
         return cuit;
@@ -43,6 +46,19 @@ public class Cliente extends Persona{
     }
 
 
+	public Set<Turno> getTurnos() {
+		return turnos;
+	}
+
+
+	public void setTurnos(Set<Turno> turnos) {
+		this.turnos = turnos;
+	}
+
+    
 
 	
+
+
+
 }

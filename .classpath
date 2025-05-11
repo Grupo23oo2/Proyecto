@@ -1,32 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/antlr-2.7.7.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/byte-buddy-1.10.7.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/byte-buddy-1.10.10.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/byte-buddy-1.10.19.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/byte-buddy-1.10.22.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/classmate-1.5.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/dom4j-2.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/FastInfoset-1.2.15.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/hibernate-commons-annotations-5.1.0.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/hibernate-core-5.4.11.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/istack-commons-runtime-3.0.7.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/jandex-2.1.1.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/javassist-3.24.0-GA.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/javax.activation-api-1.2.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/javax.persistence-api-2.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/jaxb-api-2.3.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/jaxb-runtime-2.3.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/jboss-logging-3.3.2.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/jboss-transaction-api_1.2_spec-1.1.1.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/mysql-connector-java-8.0.19.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/stax-ex-1.8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BELTARiT/UNLA/3º Año/- Orientación a Objetos 2/HibernateLibs/txw2-2.3.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/byte-buddy-1.10.7.jar"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/byte-buddy-1.10.19.jar"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/classmate-1.5.1.jar"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/dom4j-2.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/FastInfoset-1.2.15.jar"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/hibernate-commons-annotations-5.1.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/hibernate-core-5.4.11.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/istack-commons-runtime-3.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/jandex-2.1.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/javassist-3.24.0-GA.jar"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/javax.activation-api-1.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/javax.persistence-api-2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/jaxb-api-2.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/jaxb-runtime-2.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/jboss-logging-3.3.2.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/jboss-transaction-api_1.2_spec-1.1.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/mysql-connector-java-8.0.19.jar"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/stax-ex-1.8.jar"/>
+	<classpathentry kind="lib" path="C:/Wilson/Facu/3° año/Oo 2/Clases y Contenidos/libs/HibernateLibs/txw2-2.3.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

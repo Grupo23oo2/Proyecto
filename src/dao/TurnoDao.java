@@ -2,37 +2,38 @@ package dao;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import datos.Lugar;
+import datos.Turno;
 
-public class LugarDao {
+public class TurnoDao {
 	
-    public int agregarLugar(Lugar lugar) {
-        Transaction tx = null;
+	public boolean agregarTurno(Turno turno) {
+	    Transaction tx = null;
+	    try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+	        tx = session.beginTransaction();
+	        session.save(turno);
+	        tx.commit();
+	        return true;
+	    } catch (Exception e) {
+	        if (tx != null) tx.rollback();
+	        e.printStackTrace();
+	        return false;
+	    }
+	}
+	
+
+    public Turno traerTurno(int idTurno) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            tx = session.beginTransaction();
-            int id = (int) session.save(lugar);
-            tx.commit();
-            return id;
-        } catch (Exception e) {
-            if (tx != null) tx.rollback();
-            e.printStackTrace();
-            return 0;
+            return session.get(Turno.class, idTurno);
         }
     }
 
-    public Lugar traerLugar(int idLugar) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.get(Lugar.class, idLugar);
-        }
-    }
-
-    public boolean eliminarLugar(int idLugar) {
+    public boolean eliminarTurno(int idTurno) {
         Transaction tx = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Lugar lugar = session.get(Lugar.class, idLugar);
-            if (lugar == null) return false;
+            Turno t = session.get(Turno.class, idTurno);
+            if (t == null) return false;
             tx = session.beginTransaction();
-            session.delete(lugar);
+            session.delete(t);
             tx.commit();
             return true;
         } catch (Exception e) {
@@ -42,11 +43,11 @@ public class LugarDao {
         }
     }
 
-    public boolean modificarLugar(Lugar lugar) {
+    public boolean modificarTurno(Turno turno) {
         Transaction tx = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             tx = session.beginTransaction();
-            session.update(lugar);
+            session.update(turno);
             tx.commit();
             return true;
         } catch (Exception e) {

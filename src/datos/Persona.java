@@ -1,28 +1,36 @@
 package datos;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@MappedSuperclass
+@Entity
+@Table(name = "persona")
 
 public abstract class Persona {
-	
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected int idPersona;  // El id será autoincremental y será heredado
-	
+	protected int idPersona;
 	protected String nombre;
 	protected String apellido;
 	protected String dni;
 	
 	public Persona(int idPersona, String nombre, String apellido, String dni) {
-		
 		this.idPersona = idPersona;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
 	}
 	
-	public Persona(){}
+	public Persona(String nombre, String apellido, String dni) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.dni = dni;
+	}
+	
+	public Persona () {}
 
 	public int getIdPersona() {
 		return idPersona;
@@ -61,8 +69,16 @@ public abstract class Persona {
 		return "Persona [idPersona=" + idPersona + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni
 				+ "]";
 	}
+
+
+
+	
+
+
+
 	
 	
 	
 	
+
 }
