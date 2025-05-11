@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "../hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="datos">
+    <class name="Lugar" table="lugar">
+        <id name="idLugar" column="idLugar">
+            <generator class="increment"/>
+        </id>
+        <property name="direccion" column="direccion"/>
+
+        <set name="servicios" inverse="true" lazy="true" cascade="all">
+            <key column="idLugar"/>
+            <one-to-many class="Servicio"/>
+        </set>
+    </class>
+</hibernate-mapping>
