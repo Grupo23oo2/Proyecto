@@ -12,21 +12,33 @@ public class ContactoABM {
             dao.save(c);
             return true;
         } catch (Exception e) {
+            System.err.println("Error al agregar contacto: " + e.getMessage());
             return false;
         }
     }
 
+        
     public Contacto traerContacto(int id) {
-        return dao.get(id);
+        try {
+            return dao.get(id);
+        } catch (Exception e) {
+            System.err.println("Error al traer contacto " + id + ": " + e.getMessage());
+            return null;
+        }
     }
 
     public boolean eliminarContacto(int id) {
-        Contacto c = dao.get(id);
-        if (c != null) {
-            dao.delete(c);
-            return true;
+        try {
+            Contacto c = dao.get(id);
+            if (c != null) {
+                dao.delete(c);
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            System.err.println("Error al eliminar contacto " + id + ": " + e.getMessage());
+            return false;
         }
-        return false;
     }
 
     public boolean modificarContacto(Contacto c) {
@@ -34,6 +46,7 @@ public class ContactoABM {
             dao.update(c);
             return true;
         } catch (Exception e) {
+            System.err.println("Error al modificar contacto: " + e.getMessage());
             return false;
         }
     }
