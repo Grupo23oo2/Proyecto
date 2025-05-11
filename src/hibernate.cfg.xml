@@ -20,9 +20,7 @@
     <mapping resource="mapeos/Lugar.hbm.xml"/>
     <mapping resource="mapeos/Servicio.hbm.xml"/>
     <mapping resource="mapeos/Contacto.hbm.xml"/>
-    <mapping class="datos.Empleado"/>
-    <mapping class="datos.Cliente"/>
-    <mapping class="datos.Contacto"/>
+
     
   </session-factory>
 </hibernate-configuration>
