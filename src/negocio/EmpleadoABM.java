@@ -28,7 +28,7 @@ public class EmpleadoABM {
 	}
 
 	public Set<Servicio> traerServicio(Empleado e) {
-		return dao.traerTurnosDeEmpleado(e);
+		return dao.traerServiciosDeEmpleado(e);
 	}
 
 	

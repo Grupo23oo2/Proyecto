@@ -6,10 +6,15 @@
 <hibernate-mapping package="datos">
     <class name="Contacto" table="contacto">
         <id name="idContacto" column="idContacto">
-            <generator class="identity"/>
-            
-        </id>
+			<generator class="foreign">
+			<param name="property">cliente</param>
+			</generator>
+		</id>
+		
+		<property name="direccion" column="direccion"/>
         <property name="email" column="email"/>
         <property name="telefono" column="telefono"/>
+        
+        <one-to-one name="cliente" class="datos.Cliente" fetch="select"></one-to-one>
     </class>
 </hibernate-mapping>

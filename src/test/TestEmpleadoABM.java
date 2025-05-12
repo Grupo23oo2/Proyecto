@@ -27,13 +27,13 @@ public class TestEmpleadoABM {
             System.out.println("Empleado traído: " + e);
             
             
-            // PRUEBA DE MAPEO ENTRE EMPLEADO Y TURNO
+       /*     // PRUEBA DE MAPEO ENTRE EMPLEADO Y TURNO
             SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
             Session session = sessionFactory.openSession();
             Empleado empleado = session.get(Empleado.class, e.getIdPersona());  // Trae el empleado por ID
             Set<Servicio> turnos1 = empleado.getServicios();  // Obtiene los turnos asociados
             System.out.println("Turnos del empleado: " + turnos1);
-            session.close();          
+            session.close();         */ 
           
 
             // 3. Modificar empleado
@@ -46,11 +46,11 @@ public class TestEmpleadoABM {
             for (Servicio t : turnos) {
                 System.out.println(t);
             }
-
+/*
             // 5. Eliminar al empleado
             abm.eliminarEmpleado(e.getIdPersona());
             System.out.println("Empleado eliminado.");
-
+*/
         } catch (Exception ex) {
             ex.printStackTrace();
         }

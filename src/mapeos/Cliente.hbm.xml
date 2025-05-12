@@ -9,9 +9,9 @@
 
         <property name="cuit" column="cuit"/>
 
-        <one-to-one name="contacto" class="Contacto" cascade="all"/>
+        <one-to-one name="contacto" class="datos.Contacto" fetch="select" ></one-to-one>
 
-        <set name="servicios" table="servicio" inverse="true" lazy="true" fetch="select">
+        <set name="servicios" table="servicio" inverse="true" fetch="select">
             <key column="idCliente"/>
             <one-to-many class="Servicio"/>
         </set>

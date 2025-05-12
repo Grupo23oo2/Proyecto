@@ -9,7 +9,7 @@ public class TestModificarLugar {
         Lugar lugar = abm.traerLugar(1); // cambiar ID
         if (lugar != null) {
             lugar.setDireccion("Nueva dirección 456");
-            boolean resultado = abm.modificarLugar(lugar);
+            boolean resultado = abm.modificarLugar(lugar.getIdLugar(),lugar.getDireccion());
             System.out.println("Lugar modificado: " + resultado);
         } else {
             System.out.println("Lugar no encontrado");

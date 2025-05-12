@@ -8,7 +8,32 @@ public class Servicio {
     private Lugar lugarServicio;
     private Empleado empleado;
     private Cliente cliente;
-    private LocalDateTime fechaHora;
+    private LocalDateTime fechaHoraInicio;
+    private LocalDateTime fechaHoraFin;
+    
+    public Servicio(int idServicio, boolean presencial, Lugar lugarServicio, Empleado empleado, Cliente cliente,
+			LocalDateTime fechaHoraInicio, LocalDateTime fechaHoraFin) {
+		super();
+		this.idServicio = idServicio;
+		this.presencial = presencial;
+		this.lugarServicio = lugarServicio;
+		this.empleado = empleado;
+		this.cliente = cliente;
+		this.fechaHoraInicio = fechaHoraInicio;
+		this.fechaHoraFin = fechaHoraFin;
+	}
+
+	public Servicio(boolean presencial, Lugar lugarServicio, Empleado empleado, Cliente cliente,
+			LocalDateTime fechaHoraInicio, LocalDateTime fechaHoraFin) {
+		super();
+		this.presencial = presencial;
+		this.lugarServicio = lugarServicio;
+		this.empleado = empleado;
+		this.cliente = cliente;
+		this.fechaHoraInicio = fechaHoraInicio;
+		this.fechaHoraFin = fechaHoraFin;
+	}
+    
 
     public Servicio() {}
 
@@ -52,12 +77,24 @@ public class Servicio {
         this.cliente = cliente;
     }
 
-    public LocalDateTime getFechaHora() {
-        return fechaHora;
-    }
+	public LocalDateTime getFechaHoraInicio() {
+		return fechaHoraInicio;
+	}
 
-    public void setFechaHora(LocalDateTime fechaHora) {
-        this.fechaHora = fechaHora;
-    }
+	public void setFechaHoraInicio(LocalDateTime fechaHoraInicio) {
+		this.fechaHoraInicio = fechaHoraInicio;
+	}
+
+	public LocalDateTime getFechaHoraFin() {
+		return fechaHoraFin;
+	}
+
+	public void setFechaHoraFin(LocalDateTime fechaHoraFin) {
+		this.fechaHoraFin = fechaHoraFin;
+	}
+
+	
+
+    
 
 }

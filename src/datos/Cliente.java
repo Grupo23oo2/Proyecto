@@ -3,18 +3,11 @@ package datos;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "cliente")
+
 public class Cliente extends Persona{
     private String cuit;
     private Contacto contacto;
-    
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)  // mappedBy debe coincidir con el atributo en la clase Turno
     private Set<Servicio> servicios = new HashSet<>();  // Relación 1:N con Turno
     
     public Cliente(int idPersona, String nombre, String apellido, String dni, String cuit, Contacto contacto,
@@ -24,6 +17,23 @@ public class Cliente extends Persona{
 		this.contacto = contacto;
 		this.servicios = servicios;
 	}
+    
+    public Cliente(int idPersona, String nombre, String apellido, String dni, String cuit, Contacto contacto) {
+		super(idPersona, nombre, apellido, dni);
+		this.cuit = cuit;
+		this.contacto = contacto;
+	}
+    
+    
+    public Cliente(String nombre, String apellido, String dni, String cuit, Contacto contacto,
+			Set<Servicio> servicios) {
+		super(nombre, apellido, dni);
+		this.cuit = cuit;
+		this.contacto = contacto;
+		this.servicios = servicios;
+	}
+    
+    
 
     public Cliente() {}
 
@@ -53,10 +63,14 @@ public class Cliente extends Persona{
 		this.servicios = servicios;
 	}
 
-    
+	@Override
+	public String toString() {
+		return "Cliente [cuit=" + cuit + ", contacto=" + contacto + ", servicios=" + servicios + ", idPersona="
+				+ idPersona + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + "]";
+	}
+
+
 
 	
-
-
 
 }

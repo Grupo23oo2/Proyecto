@@ -9,9 +9,10 @@
             <generator class="increment"/>
         </id>
         <property name="presencial"/>
-        <property name="fechaHora" column="fechaHora"/>
+        <property name="fechaHoraInicio" column="fechaHoraInicio"/>
+        <property name="fechaHoraFin" column="fechaHoraFin"/>
 
-        <many-to-one name="lugarServicio" column="lugarServicio" class="Lugar"/>
+        <many-to-one name="lugarServicio" column="idLugar" class="Lugar"/>
         <many-to-one name="empleado" column="idEmpleado" class="Empleado"/>
         <many-to-one name="cliente" column="idCliente" class="Cliente"/>
     </class>

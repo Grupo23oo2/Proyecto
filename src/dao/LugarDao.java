@@ -6,18 +6,20 @@ import datos.Lugar;
 
 public class LugarDao {
 	
-    public int agregarLugar(Lugar lugar) {
+	public boolean agregarLugar(Lugar lugar) {
         Transaction tx = null;
+        boolean exito = false; // Variable para el retorno
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             tx = session.beginTransaction();
-            int id = (int) session.save(lugar);
+            session.save(lugar); // No necesitamos capturar el id si solo nos interesa el éxito
             tx.commit();
-            return id;
+            exito = true; // Si llega aquí es porque se completó con éxito
         } catch (Exception e) {
             if (tx != null) tx.rollback();
+            System.err.println("Error al agregar Lugar: " + e.getMessage());
             e.printStackTrace();
-            return 0;
         }
+        return exito; // Retorna el estado final
     }
 
     public Lugar traerLugar(int idLugar) {
@@ -28,31 +30,47 @@ public class LugarDao {
 
     public boolean eliminarLugar(int idLugar) {
         Transaction tx = null;
+        boolean exito = false; // Variable para el retorno
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Lugar lugar = session.get(Lugar.class, idLugar);
-            if (lugar == null) return false;
+            if (lugar == null) return false; // Si no existe, retorna false
             tx = session.beginTransaction();
             session.delete(lugar);
             tx.commit();
-            return true;
+            exito = true; // Si todo fue bien, actualizamos el estado
         } catch (Exception e) {
             if (tx != null) tx.rollback();
+            System.err.println("Error al eliminar Lugar: " + e.getMessage());
             e.printStackTrace();
-            return false;
         }
+        return exito; // Retorna el estado final
     }
 
-    public boolean modificarLugar(Lugar lugar) {
+    public boolean modificarLugar(int idLugar, String nuevaDireccion) {
         Transaction tx = null;
+        boolean exito = false; // Variable para el retorno
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            // Obtener el lugar actual usando el id
+            Lugar lugar = session.get(Lugar.class, idLugar);
+            
+            if (lugar == null) {
+                return false; // Si no existe el lugar, retornamos false
+            }
+
+            // Modificar los atributos del lugar
+            lugar.setDireccion(nuevaDireccion); // Suponiendo que el Lugar tiene un método setDireccion
+            
             tx = session.beginTransaction();
-            session.update(lugar);
+            session.update(lugar); // Persistimos los cambios en la base de datos
             tx.commit();
-            return true;
+            exito = true; // Si llegamos aquí, significa que la operación fue exitosa
         } catch (Exception e) {
-            if (tx != null) tx.rollback();
+            if (tx != null) tx.rollback(); // En caso de error, hacemos rollback
+            System.err.println("Error al modificar Lugar: " + e.getMessage());
             e.printStackTrace();
-            return false;
         }
+        return exito; // Retornamos el estado final
     }
+    
+    
 }

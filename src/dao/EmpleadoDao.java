@@ -97,11 +97,11 @@ public class EmpleadoDao {
 	    return objeto;
 	}
 	
-	public Set<Servicio> traerTurnosDeEmpleado(Empleado empleado) {
+	public Set<Servicio> traerServiciosDeEmpleado(Empleado empleado) {
 	    Set<Servicio> servicios = new HashSet<>();  // Inicializamos la colección en vacío
 	    try {
 	        iniciaOperacion();
-	        String hql = "SELECT e FROM Empleado e JOIN FETCH e.turnos WHERE e.idPersona = :id";
+	        String hql = "SELECT e FROM Empleado e JOIN FETCH e.servicios WHERE e.idPersona = :id";
 	        Empleado e = session.createQuery(hql, Empleado.class)
 	                            .setParameter("id", empleado.getIdPersona())
 	                            .uniqueResult();

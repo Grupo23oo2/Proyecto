@@ -11,7 +11,7 @@ public class LugarABM {
         this.lugarDao = new LugarDao();
     }
 
-    public int agregarLugar(Lugar lugar) {
+    public boolean agregarLugar(Lugar lugar) {
         return lugarDao.agregarLugar(lugar);
     }
 
@@ -23,7 +23,7 @@ public class LugarABM {
         return lugarDao.eliminarLugar(idLugar);
     }
 
-    public boolean modificarLugar(Lugar lugar) {
-        return lugarDao.modificarLugar(lugar);
+    public boolean modificarLugar(int idLugar, String nuevaDireccion) {
+        return lugarDao.modificarLugar(idLugar, nuevaDireccion);
     }
 }

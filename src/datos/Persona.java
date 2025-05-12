@@ -1,17 +1,10 @@
 package datos;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "persona")
+
 
 public abstract class Persona {
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	protected int idPersona;
 	protected String nombre;
 	protected String apellido;

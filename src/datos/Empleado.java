@@ -3,21 +3,13 @@ package datos;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "empleado")
+
+
 public class Empleado extends Persona{
 
     private String rol;
-
-    @OneToMany(mappedBy = "empleado", cascade = CascadeType.ALL)  // mappedBy debe coincidir con el atributo en la clase Turno
     private Set<Servicio> servicios = new HashSet<>();  // Relación 1:N con Turno
-    
-   
     
     public Empleado(int idPersona, String nombre, String apellido, String dni, String rol, Set<Servicio> servicios) {
 		super(idPersona, nombre, apellido, dni);
