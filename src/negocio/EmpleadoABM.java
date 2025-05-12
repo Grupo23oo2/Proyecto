@@ -14,7 +14,6 @@ public class EmpleadoABM {
 		return dao.agregarEmpleado(e);
 	}
 
-
 	public boolean modificarEmpleado(int idPersona, String nuevoNombre, String nuevoRol, String nuevoApellido, String nuevoDni) {
 		return dao.modificarEmpleado(idPersona, nuevoNombre, nuevoRol, nuevoApellido, nuevoDni);
 	}

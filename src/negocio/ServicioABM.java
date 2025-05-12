@@ -26,25 +26,20 @@ public class ServicioABM {
         return servicioDao.eliminarServicio(idServicio);
     }
 
-    public boolean modificarServicio(int idServicio, LocalDate fechaServicio, LocalTime horaServicio) {
-        Servicio servicio = servicioDao.traerServicio(idServicio);
-        if (servicio != null) {
-            servicio.setFechaHoraInicio(fechaServicio.atTime(horaServicio));
-            return servicioDao.modificarServicio(servicio);
-        }
-        return false;
+    public boolean modificarServicio(int idServicio, LocalDateTime fechaHoraInicio, LocalDateTime fechaHoraFin) {
+        return servicioDao.modificarServicio(idServicio, fechaHoraInicio, fechaHoraFin);
     }
     
     public Servicio traerServicio(int idServicio) {
         return servicioDao.traerServicio(idServicio);  // Llamada al método en el Dao
     }
     
-    public Servicio traerServicioPorFechaYHorario(LocalDateTime fechaHora) {
+    public Servicio traerServicioPorFechaYHorario(LocalDateTime fechaHoraInicio) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // Realizamos una consulta para buscar el servicio por fecha y hora
             Query<Servicio> query = session.createQuery(
-                "FROM Servicio WHERE fechaHora = :fechaHora", Servicio.class);
-            query.setParameter("fechaHora", fechaHora);
+                "FROM Servicio WHERE fechaHoraInicio = :fechaHoraInicio", Servicio.class);
+            query.setParameter("fechaHoraInicio", fechaHoraInicio);
             
             // Ejecutar la consulta y obtener el servicio
             Servicio servicio = query.uniqueResult(); // Obtiene un solo resultado o null si no existe

@@ -12,3 +12,4 @@ public class TestHBM {
         session.close();
     }
 }
+

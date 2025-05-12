@@ -93,6 +93,12 @@ public class Servicio {
 		this.fechaHoraFin = fechaHoraFin;
 	}
 
+	@Override
+	public String toString() {
+		return "Servicio [idServicio=" + idServicio + ", presencial=" + presencial + ", fechaHoraInicio=" + fechaHoraInicio
+				+ ", fechaHoraFin=" + fechaHoraFin + "]";
+	}
+
 	
 
     
