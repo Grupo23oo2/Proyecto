@@ -1,7 +1,10 @@
 package negocio;
 
+import java.util.Set;
+
 import dao.LugarDao;
 import datos.Lugar;
+import datos.Servicio;
 
 public class LugarABM {
 
@@ -26,4 +29,9 @@ public class LugarABM {
     public boolean modificarLugar(int idLugar, String nuevaDireccion) {
         return lugarDao.modificarLugar(idLugar, nuevaDireccion);
     }
+    
+    public Set<Servicio> traerServiciosPorLugar(Lugar lugar) {
+        return lugarDao.traerServiciosPorLugar(lugar);
+    }
+    
 }

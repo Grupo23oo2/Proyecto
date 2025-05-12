@@ -1,8 +1,15 @@
 package dao;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
 import datos.Lugar;
+import datos.Servicio;
 
 public class LugarDao {
 	
@@ -72,5 +79,15 @@ public class LugarDao {
         return exito; // Retornamos el estado final
     }
     
-    
+    public Set<Servicio> traerServiciosPorLugar(Lugar lugar) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = "from Servicio s where s.lugarServicio = :lugar";
+            Query<Servicio> query = session.createQuery(hql, Servicio.class);
+            query.setParameter("lugar", lugar);
+            List<Servicio> servicios = query.getResultList();
+            return new HashSet<>(servicios);
+        }
+    }
 }
+    
+    

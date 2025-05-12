@@ -37,9 +37,7 @@ public class TestServicioABM {
 		contactoABM.agregarContacto(contacto);
 		System.out.println("-------3-------");
 		Empleado empleado = new Empleado(2, "raul", "fernandez", "45756987", "medico", new HashSet<>());
-		
-		
-		
+
 		
 		System.out.println("-------4-------");
 		empleadoABM.agregarEmpleado(empleado);

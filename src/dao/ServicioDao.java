@@ -80,10 +80,20 @@ public class ServicioDao {
         }
     }
 
-    public boolean modificarServicio(Servicio servicio) {
+    public boolean modificarServicio(int idServicio, LocalDateTime nuevaFechaInicio, LocalDateTime nuevaFechaFin) {
         Transaction tx = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             tx = session.beginTransaction();
+
+            Servicio servicio = session.get(Servicio.class, idServicio);
+            if (servicio == null) {
+                System.out.println("No se encontró el servicio con ID: " + idServicio);
+                return false;
+            }
+
+            servicio.setFechaHoraInicio(nuevaFechaInicio);
+            servicio.setFechaHoraFin(nuevaFechaFin);
+
             session.update(servicio);
             tx.commit();
             return true;

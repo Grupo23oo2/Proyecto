@@ -3,9 +3,8 @@ package negocio;
 import dao.HibernateUtil;
 import dao.ServicioDao;
 import datos.Servicio;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
+
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -26,11 +25,11 @@ public class ServicioABM {
         return servicioDao.eliminarServicio(idServicio);
     }
 
-    public boolean modificarServicio(int idServicio, LocalDate fechaServicio, LocalTime horaServicio) {
+    public boolean modificarServicio(int idServicio, LocalDateTime fechaHoraInicio, LocalDateTime fechaHoraFin) {
         Servicio servicio = servicioDao.traerServicio(idServicio);
         if (servicio != null) {
-            servicio.setFechaHoraInicio(fechaServicio.atTime(horaServicio));
-            return servicioDao.modificarServicio(servicio);
+            servicio.setFechaHoraInicio(fechaHoraInicio);
+            return servicioDao.modificarServicio(idServicio,fechaHoraInicio,fechaHoraFin);
         }
         return false;
     }
