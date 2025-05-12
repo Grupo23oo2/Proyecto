@@ -19,7 +19,7 @@ public class TestContacto {
 
         // Modificar
         c.setEmail("otro@mail.com");
-        abm.modificarContacto(c);
+        abm.modificarContacto(c.getIdContacto(),"Caseros","franco@hotmail.com","1515151515");
 
         // Eliminar
         abm.eliminarContacto(nuevo.getIdContacto());

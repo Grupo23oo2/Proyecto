@@ -16,14 +16,7 @@ public class Cliente extends Persona{
 		this.cuit = cuit;
 		this.contacto = contacto;
 		this.servicios = servicios;
-	}
-    
-    public Cliente(int idPersona, String nombre, String apellido, String dni, String cuit, Contacto contacto) {
-		super(idPersona, nombre, apellido, dni);
-		this.cuit = cuit;
-		this.contacto = contacto;
-	}
-    
+	}   
     
     public Cliente(String nombre, String apellido, String dni, String cuit, Contacto contacto,
 			Set<Servicio> servicios) {

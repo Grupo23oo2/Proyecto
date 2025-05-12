@@ -1,8 +1,5 @@
 package datos;
 
-
-
-
 public abstract class Persona {
 
 	protected int idPersona;
